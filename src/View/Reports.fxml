@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1600.0" styleClass="main-bg" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Reports">
+    <children>
+        <Pane prefHeight="78.0" prefWidth="1800.0" styleClass="top-nav">
+            <children>
+                <HBox layoutX="614.0" layoutY="22.0" spacing="16.0">
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#onActionCust" styleClass="nav-button" text="CUSTOMERS" />
+                        <Button mnemonicParsing="false" onAction="#onActionApp" styleClass="nav-button" text="APPOINTMENTS" />
+                        <Button mnemonicParsing="false" text="REPORTS">
+                     <styleClass>
+                        <String fx:value="nav-button" />
+                        <String fx:value="nav-button-on" />
+                     </styleClass></Button>
+                    </children>
+                </HBox>
+            <Label fx:id="alertLabel" layoutX="126.0" layoutY="27.0" text="No upcoming appointments" />
+            </children></Pane>
+      <Label layoutX="98.0" layoutY="153.0" text="REPORT 1 - Appointment Counts" />
+      <HBox layoutX="98.0" layoutY="198.0" spacing="16.0">
+         <children>
+            <ComboBox fx:id="monthCombo" onAction="#onActionReportOne" prefHeight="35.0" prefWidth="166.0" promptText="Select Month" styleClass="input" />
+            <ComboBox fx:id="typeCombo" layoutX="10.0" layoutY="10.0" onAction="#onActionReportOne" prefWidth="150.0" promptText="Select Type" styleClass="input" />
+         </children>
+      </HBox>
+      <Label fx:id="reportOneLabel" layoutX="98.0" layoutY="254.0" text="Select Month and Type To Show Results" />
+      <HBox layoutX="98.0" layoutY="314.0" spacing="128.0">
+         <children>
+            <Pane>
+               <children>
+                  <Label text="REPORT 2 - Contact Schedule" />
+                  <ComboBox fx:id="contactCombo" layoutY="45.0" onAction="#onActionReportTwo" prefHeight="35.0" prefWidth="208.0" promptText="Select Contact" styleClass="input" />
+               </children>
+            </Pane>
+            <Pane layoutX="10.0" layoutY="10.0">
+               <children>
+                  <Label text="REPORT 3 - Customer Appointments" />
+                  <ComboBox fx:id="customerCombo" layoutY="45.0" onAction="#onActionReportThree" prefHeight="35.0" prefWidth="283.0" promptText="Select Customer" styleClass="input" />
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+        <TableView fx:id="resultTable" layoutX="98.0" layoutY="448.0" prefHeight="290.0" prefWidth="1214.0" styleClass="table">
+            <columns>
+                <TableColumn fx:id="idColumn" prefWidth="49.0" styleClass="table-header" text="ID" />
+                <TableColumn fx:id="customerColumn" prefWidth="130.0" styleClass="table-header" text="Customer" />
+                <TableColumn fx:id="contactColumn" prefWidth="134.0" styleClass="table-header" text="Contact" />
+                <TableColumn fx:id="titleColumn" prefWidth="87.0" styleClass="table-header" text="Title" />
+                <TableColumn fx:id="descColumn" prefWidth="115.3333740234375" styleClass="table-header" text="Desc" />
+                <TableColumn fx:id="locationColumn" prefWidth="134.6666259765625" styleClass="table-header" text="Location" />
+                <TableColumn fx:id="typeColumn" prefWidth="158.666748046875" styleClass="table-header" text="Type" />
+                <TableColumn fx:id="startColumn" prefWidth="150.6666259765625" styleClass="table-header" text="Start" />
+                <TableColumn fx:id="endColumn" prefWidth="150.0" styleClass="table-header" text="End" />
+                <TableColumn fx:id="userColumn" prefWidth="102.0" styleClass="table-header" text="User" />
+            </columns>
+        </TableView>
+      <Label fx:id="bottomLabel" layoutX="98.0" layoutY="419.0" text="Make A Selection To Continue" />
+    </children>
+</AnchorPane>

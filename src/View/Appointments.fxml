@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1600.0" styleClass="main-bg" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Appointments">
+    <children>
+        <Label fx:id="modifyLabel" alignment="CENTER" layoutX="624.0" layoutY="695.0" prefHeight="25.0" prefWidth="573.0" text="SELECT AN APPOINTMENT TO MODIFY">
+            <padding>
+                <Insets right="16.0" />
+            </padding>
+        </Label>
+        <Pane prefHeight="78.0" prefWidth="1800.0" styleClass="top-nav">
+            <children>
+                <HBox layoutX="614.0" layoutY="22.0" spacing="16.0">
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#onActionCust" styleClass="nav-button" text="CUSTOMERS" />
+                        <Button mnemonicParsing="false" text="APPOINTMENTS">
+                     <styleClass>
+                        <String fx:value="nav-button" />
+                        <String fx:value="nav-button-on" />
+                     </styleClass></Button>
+                        <Button mnemonicParsing="false" onAction="#onActionRep" styleClass="nav-button" text="REPORTS" />
+                    </children>
+                </HBox>
+            <Label fx:id="alertLabel" layoutX="126.0" layoutY="27.0" text="No upcoming appointments" />
+            </children></Pane>
+        <Pane layoutX="63.0" layoutY="103.0" prefHeight="683.0" prefWidth="527.0" styleClass="section-bg">
+            <children>
+                <GridPane layoutX="38.0" prefHeight="673.0" prefWidth="452.0">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="286.0" minWidth="10.0" prefWidth="137.0" />
+                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="286.0" minWidth="10.0" prefWidth="44.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="363.0" minWidth="10.0" prefWidth="287.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <TextField fx:id="appointmentID" disable="true" layoutX="175.0" layoutY="140.0" prefHeight="35.0" prefWidth="326.0" promptText="Auto Generated" styleClass="input" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="customerCombo" prefHeight="25.0" prefWidth="294.0" promptText="Select Customer" styleClass="input" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                  <ComboBox fx:id="contactCombo" layoutX="180.0" layoutY="123.0" prefHeight="25.0" prefWidth="294.0" promptText="Select Contact" styleClass="input" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                        <TextField fx:id="titleInput" layoutX="238.0" layoutY="47.0" styleClass="input" text="123" GridPane.columnIndex="2" GridPane.hgrow="NEVER" GridPane.rowIndex="6" />
+                  <TextField fx:id="descInput" layoutX="180.0" layoutY="274.0" styleClass="input" text="123" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                  <TextField fx:id="locationInput" layoutX="180.0" layoutY="381.0" styleClass="input" text="123" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                  <ComboBox fx:id="typeCombo" layoutX="180.0" layoutY="182.0" prefHeight="25.0" prefWidth="294.0" promptText="Select Appointment Type" styleClass="input" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="8.0" GridPane.columnIndex="2" GridPane.rowIndex="10">
+                     <children>
+                        <DatePicker fx:id="startDate" editable="false" onAction="#onActionDatePickStart" prefHeight="25.0" prefWidth="124.0" />
+                        <ComboBox fx:id="startCombo" prefHeight="35.0" prefWidth="134.0" promptText="Start Time" styleClass="input" />
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="180.0" layoutY="513.0" prefHeight="100.0" prefWidth="200.0" spacing="8.0" GridPane.columnIndex="2" GridPane.rowIndex="11">
+                     <children>
+                        <DatePicker fx:id="endDate" editable="false" onAction="#onActionDatePickEnd" prefHeight="25.0" prefWidth="124.0" />
+                        <ComboBox fx:id="endCombo" prefHeight="35.0" prefWidth="134.0" promptText="End Time" styleClass="input" />
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </HBox>
+                        <Label layoutX="10.0" layoutY="145.0" text="Customer" GridPane.rowIndex="4">
+                            <padding>
+                                <Insets right="16.0" />
+                            </padding>
+                        </Label>
+                        <Label text="Contact" GridPane.rowIndex="5">
+                            <padding>
+                                <Insets right="16.0" />
+                            </padding>
+                        </Label>
+                        <Label layoutX="179.0" layoutY="52.0" text="Title" GridPane.rowIndex="6">
+                            <padding>
+                                <Insets right="16.0" />
+                            </padding>
+                        </Label>
+                        <Label layoutX="163.0" layoutY="270.0" text="Description" GridPane.rowIndex="7">
+                            <padding>
+                                <Insets right="16.0" />
+                            </padding>
+                        </Label>
+                        <Label layoutX="165.0" layoutY="379.0" text="Location" GridPane.rowIndex="8">
+                            <padding>
+                                <Insets right="16.0" />
+                            </padding>
+                        </Label>
+                        <Label layoutX="166.0" layoutY="407.0" text="Type" GridPane.rowIndex="9">
+                            <padding>
+                                <Insets right="16.0" />
+                            </padding>
+                        </Label>
+                        <Label layoutX="165.0" layoutY="161.0" text="Start" GridPane.rowIndex="10">
+                            <padding>
+                                <Insets right="16.0" />
+                            </padding>
+                        </Label>
+                        <Label fx:id="formLabel" styleClass="text-header" text="Label" GridPane.columnSpan="3" GridPane.halignment="CENTER" />
+                        <Label fx:id="errorLabel" alignment="TOP_CENTER" contentDisplay="TOP" prefHeight="39.0" prefWidth="452.0" styleClass="error" GridPane.columnSpan="3" GridPane.rowIndex="1" />
+                  <ImageView fx:id="customerError" fitHeight="159.0" fitWidth="20.0" layoutX="141.0" layoutY="247.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <image>
+                        <Image url="@../img/error.png" />
+                     </image>
+                  </ImageView>
+                        <ImageView fx:id="contactError" fitHeight="159.0" fitWidth="20.0" layoutX="158.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                            <image>
+                                <Image url="@../img/error.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="titleError" fitHeight="159.0" fitWidth="20.0" layoutX="158.0" layoutY="193.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                            <image>
+                                <Image url="@../img/error.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="descError" fitHeight="159.0" fitWidth="20.0" layoutX="158.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                            <image>
+                                <Image url="@../img/error.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="locationError" fitHeight="159.0" fitWidth="20.0" layoutX="158.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                            <image>
+                                <Image url="@../img/error.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="typeError" fitHeight="159.0" fitWidth="20.0" layoutX="158.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                            <image>
+                                <Image url="@../img/error.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="startError" fitHeight="159.0" fitWidth="20.0" layoutX="158.0" layoutY="413.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                            <image>
+                                <Image url="@../img/error.png" />
+                            </image>
+                        </ImageView>
+                  <ImageView fx:id="endError" fitHeight="159.0" fitWidth="20.0" layoutX="141.0" layoutY="532.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="11">
+                     <image>
+                        <Image url="@../img/error.png" />
+                     </image>
+                  </ImageView>
+                        <Button fx:id="backToAddButton" mnemonicParsing="false" onAction="#onActionBackToAdd" text="Back to Add Form" visible="false">
+                            <styleClass>
+                                <String fx:value="button-tab" />
+                                <String fx:value="button" />
+                            </styleClass>
+                        </Button>
+                  <Label layoutX="10.0" layoutY="166.0" text="Appointment ID" GridPane.rowIndex="2">
+                     <padding>
+                        <Insets right="16.0" />
+                     </padding>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="432.0" text="End" GridPane.rowIndex="11">
+                     <padding>
+                        <Insets right="16.0" />
+                     </padding>
+                  </Label>
+                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="452.0" spacing="16.0" GridPane.columnSpan="3" GridPane.rowIndex="12">
+                              <children>
+                                  <Button fx:id="formSaveButton" mnemonicParsing="false" onAction="#onActionSave" text="Save">
+                                      <styleClass>
+                                          <String fx:value="button" />
+                                          <String fx:value="button-normal" />
+                                      </styleClass>
+                                  </Button>
+                                  <Button fx:id="resetButton" mnemonicParsing="false" onAction="#onActionClear" styleClass="button-danger" text="Reset" />
+                              </children>
+                          </HBox>
+                  <Label layoutX="10.0" layoutY="120.0" text="User ID" GridPane.rowIndex="3">
+                     <padding>
+                        <Insets right="16.0" />
+                     </padding>
+                  </Label>
+                  <TextField fx:id="userID" disable="true" layoutX="180.0" layoutY="115.0" prefHeight="35.0" prefWidth="326.0" promptText="Current User" styleClass="input" text="1" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                    </children>
+                </GridPane>
+            </children>
+        </Pane>
+        <TableView fx:id="apptTable" layoutX="624.0" layoutY="176.0" prefHeight="500.0" prefWidth="1159.0" styleClass="table">
+            <columns>
+                <TableColumn fx:id="idColumn" prefWidth="49.0" styleClass="table-header" text="ID" />
+                <TableColumn fx:id="customerColumn" prefWidth="130.0" styleClass="table-header" text="Customer" />
+                <TableColumn fx:id="contactColumn" prefWidth="134.0" styleClass="table-header" text="Contact" />
+                <TableColumn fx:id="titleColumn" prefWidth="87.0" styleClass="table-header" text="Title" />
+                <TableColumn fx:id="descColumn" prefWidth="115.3333740234375" styleClass="table-header" text="Desc" />
+                <TableColumn fx:id="locationColumn" prefWidth="134.6666259765625" styleClass="table-header" text="Location" />
+                <TableColumn fx:id="typeColumn" prefWidth="158.666748046875" styleClass="table-header" text="Type" />
+            <TableColumn fx:id="startColumn" prefWidth="150.6666259765625" styleClass="table-header" text="Start" />
+            <TableColumn fx:id="endColumn" prefWidth="150.0" styleClass="table-header" text="End" />
+            <TableColumn fx:id="userColumn" prefWidth="54.0" styleClass="table-header" text="User" />
+            </columns>
+        </TableView>
+        <Button layoutX="1390.0" layoutY="690.0" mnemonicParsing="false" onAction="#onActionRemoveCurrent" styleClass="button-danger" text="Remove Appointment" />
+        <Button layoutX="1197.0" layoutY="690.0" mnemonicParsing="false" onAction="#onActionModifyCurrent" text="Update Appointment">
+            <styleClass>
+                <String fx:value="button-normal" />
+                <String fx:value="button" />
+            </styleClass>
+        </Button>
+        <ImageView fx:id="modifyError" fitHeight="159.0" fitWidth="20.0" layoutX="725.0" layoutY="698.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <image>
+                <Image url="@../img/error.png" />
+            </image>
+        </ImageView>
+      <HBox layoutX="624.0" layoutY="140.0" spacing="16.0">
+         <children>
+            <Button fx:id="buttonAll" mnemonicParsing="false" onAction="#onActonViewAll" styleClass="button-tab-on" text="All Appointments" />
+            <Button fx:id="buttonWeek" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onActionViewWeek" text="This Week">
+               <styleClass>
+                  <String fx:value="button-tab" />
+                  <String fx:value="button" />
+               </styleClass>
+            </Button>
+            <Button fx:id="buttonMonth" layoutX="119.0" layoutY="10.0" mnemonicParsing="false" onAction="#onActionViewMonth" text="This Month">
+               <styleClass>
+                  <String fx:value="button-tab" />
+                  <String fx:value="button" />
+               </styleClass>
+            </Button>
+         </children>
+      </HBox>
+    </children>
+</AnchorPane>
